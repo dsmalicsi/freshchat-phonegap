@@ -40,6 +40,67 @@ https://github.com/dpa99c/cordova-android-support-gradle-release
 
 To resolve these version collisions, this plugin injects a Gradle configuration file into the native Android platform project, which overrides any versions specified by other plugins, and forces them to the version specified in its Gradle file.
 
+4. Incase user face the  androidx.annotation.RequiresApi import issue than add this plugin (Android only)
+  
+ Add plugin to enable AndroidX in the project 
+
+  `` ionic cordova plugin add cordova-plugin-androidx ``
+
+ Add plugin to patch existing plugin source that uses the Android Support Library to use AndroidX
+  
+ `` ionic cordova plugin add cordova-plugin-androidx-adapter ``
+
+## Capacitor Integration
+ 
+
+1. Install the Freshchat plugin to your project
+
+   `` npm install https://github.com/techaffinity/freshchat-phonegap.git#SDK_Update ``
+   
+2. Add required platforms to your ionic project
+
+```shell
+npx cap add android
+npx cap add ios
+
+```
+ To open the project in native platform IDE by  
+ 
+ ``` 
+    npx cap open android
+    npx cap open ios
+    
+ ```
+
+
+3.  **Android**, To prevent build failures caused by Manifest merger follow this steps in  (Android studio) 
+
+   Fix Missing File Provider Error please follow this [video](https://freshworks.wistia.com/medias/qrhrj1vzp1) steps
+   
+ -  Remove the FileProvider tag called `provider`  from "/android/capacitor-cordova-android-plugins/src/main/AndroidManifest.xml
+   
+ - In app Manifest.xml (android/app/src/main/AndroidManifest.xml) just replace the Provider code from video and "android:authorities" it should be your app id Ex:(xxx.xxxx.xxx.provider) 
+   
+ - Add the String value in string.xml (android/app/src/main/res/values)
+
+  `` <string name="freshchat_file_provider_authority">xxx.xxxx.xxx.provider</string> ``
+  
+ - Once done now the app build successfully Android studio
+        
+       
+    **IOS**, To prevent build failures caused by '.h file not found ' follow these steps in (Xcode)
+
+ - Open Xcode Add the `` pod 'FreshchatSDK' `` in the pod file then open the terminal in the ios/app folder and install the pod ``pod install``  reopen the Xcode 
+ 
+ - Once install the Freshchat SDK then we have to move the plugin files to the main app folder
+ 
+   you can find the "Freshchat" folder in pods/Development_pods/Cordovaplugins/Freshchat and move(cut) the three files to the app/app folder in Xcode  
+   
+ - Add the App-Bridging-header.h file path to  build setting -> swift compiler General -> Objective-c Bridging Header in Xcode
+ 
+ - Once done now the app build successfully in xcode
+
+
 ### Initializing the plugin
 
 _Freshchat.init_  needs to be called from _ondeviceready_  event listener to make sure the SDK is initialized before use.
