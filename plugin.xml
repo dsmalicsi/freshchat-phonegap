@@ -81,7 +81,7 @@
         <!-- Freshchat SDK -->
         
         <!-- Headers -->
-        <header-file src="src/ios/FreshchatSDK/Freshchat.h" target-dir="FreshchatiOSPlugin"/>
+        <header-file src="src/ios/FreshchatSDK/FreshchatSDK.h" target-dir="FreshchatiOSPlugin"/>
         
         <!-- Resources -->
         <!-- <resource-file src="src/ios/FreshchatSDK/FreshchatModels.bundle" target-dir="FreshchatiOSPlugin"/>
