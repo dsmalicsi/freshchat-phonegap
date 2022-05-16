@@ -75,13 +75,13 @@
         
         <!-- PLUGIN HEADER AND SOURCE FILES -->
         <header-file src="src/ios/FreshchatPlugin.h" target-dir="FreshchatiOSPlugin"/>
-        <header-file src="src/ios/App-Bridging-header.h" type="BridgingHeader" />
+        <!--<header-file src="src/ios/App-Bridging-header.h" type="BridgingHeader" /> -->
         <source-file src="src/ios/FreshchatPlugin.m" target-dir="FreshchatiOSPlugin" />
         
         <!-- Freshchat SDK -->
         
         <!-- Headers -->
-        <!-- <header-file src="src/ios/FreshchatSDK/Freshchat.h" target-dir="FreshchatiOSPlugin"/> -->
+        <header-file src="src/ios/FreshchatSDK/Freshchat.h" target-dir="FreshchatiOSPlugin"/>
         
         <!-- Resources -->
         <!-- <resource-file src="src/ios/FreshchatSDK/FreshchatModels.bundle" target-dir="FreshchatiOSPlugin"/>
