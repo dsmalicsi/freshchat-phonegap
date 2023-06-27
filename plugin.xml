@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <plugin xmlns       =   "http://www.phonegap.com/ns/plugins/1.0"
         id          =   "cordova-plugin-freshchat"
-        version     =   "1.3.0">
+        version     =   "1.2.0">
 
     <!-- Meta -->
     <name>Freshchat plugin for Phonegap</name>
@@ -43,12 +43,12 @@
         <config-file target="AndroidManifest.xml" parent="/manifest">
             <uses-permission android:name="$PACKAGE_NAME.permission.C2D_MESSAGE" />
             <permission android:name="$PACKAGE_NAME.permission.C2D_MESSAGE" android:protectionLevel="signature" />
-            <uses-permission android:name="android.permission.CAMERA" android:required="false"/>
+            <uses-permission android:name="android.permission.CAMERA"/>
         </config-file>
 
-           <config-file target="AndroidManifest.xml" parent="application" mode="merge">
+            <config-file target="AndroidManifest.xml" parent="/manifest/application">
                 <provider
-                android:name="androidx.core.content.FileProvider" android:authorities="${applicationId}.provider" android:exported="false"
+                android:name="com.techaffinity.phonegap.plugins.FileProvider" android:authorities="${applicationId}.provider" android:exported="false"
                 android:grantUriPermissions="true">
             <meta-data
                 android:name="android.support.FILE_PROVIDER_PATHS"
@@ -75,13 +75,12 @@
         
         <!-- PLUGIN HEADER AND SOURCE FILES -->
         <header-file src="src/ios/FreshchatPlugin.h" target-dir="FreshchatiOSPlugin"/>
-        <!--<header-file src="src/ios/App-Bridging-header.h" type="BridgingHeader" /> -->
-        <source-file src="src/ios/FreshchatPlugin.m" target-dir="FreshchatiOSPlugin" />
+        <source-file src="src/ios/FreshchatPlugin.m" target-dir="FreshchatiOSPlugin"/>
         
         <!-- Freshchat SDK -->
         
         <!-- Headers -->
-        <header-file src="src/ios/FreshchatSDK/FreshchatSDK.h" target-dir="FreshchatiOSPlugin"/>
+        <!-- <header-file src="src/ios/FreshchatSDK/Freshchat.h" target-dir="FreshchatiOSPlugin"/> -->
         
         <!-- Resources -->
         <!-- <resource-file src="src/ios/FreshchatSDK/FreshchatModels.bundle" target-dir="FreshchatiOSPlugin"/>
@@ -102,7 +101,7 @@
         <framework src="Photos.framework"/>
 
 
-         <framework src="FreshchatSDK" />
+         <framework src="FreshchatSDK" type="podspec" spec="5.5.2"/>
         <!-- <source-file src="src/ios/FreshchatSDK/libFDFreshchatSDK.a" target-dir="FreshchatiOSPlugin" framework="true"/> -->
     </platform>
 </plugin>
