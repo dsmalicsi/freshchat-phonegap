@@ -80,12 +80,12 @@
         <!-- Freshchat SDK -->
         
         <!-- Headers -->
-        <!-- <header-file src="src/ios/FreshchatSDK/Freshchat.h" target-dir="FreshchatiOSPlugin"/> -->
+         <header-file src="src/ios/FreshchatSDK/FreshchatSDK.h" target-dir="FreshchatiOSPlugin"/> 
         
         <!-- Resources -->
-        <!-- <resource-file src="src/ios/FreshchatSDK/FreshchatModels.bundle" target-dir="FreshchatiOSPlugin"/>
+        <resource-file src="src/ios/FreshchatSDK/FreshchatModels.bundle" target-dir="FreshchatiOSPlugin"/>
         <resource-file src="src/ios/FreshchatSDK/FCResources.bundle" target-dir="FreshchatiOSPlugin"/>
-        <resource-file src="src/ios/FreshchatSDK/FCLocalization.bundle" target-dir="FreshchatiOSPlugin"/> -->
+        <resource-file src="src/ios/FreshchatSDK/FCLocalization.bundle" target-dir="FreshchatiOSPlugin"/>
 
 
 
@@ -101,7 +101,7 @@
         <framework src="Photos.framework"/>
 
 
-         <framework src="FreshchatSDK" type="podspec" spec="5.5.2"/>
+         <framework src="FreshchatSDK" type="podspec" spec="5.3.0"/>
         <!-- <source-file src="src/ios/FreshchatSDK/libFDFreshchatSDK.a" target-dir="FreshchatiOSPlugin" framework="true"/> -->
     </platform>
 </plugin>
